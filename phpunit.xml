@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--specifies phpunit autostart config settings-->
+<phpunit bootstrap="vendor/autoload.php" colors="true" stopOnFailure="false">
+<!--specifies name of testsuit is Calculator stored in ./tests/ directory -->
+    <testsuites>
+        <testsuite name="Calculator">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
