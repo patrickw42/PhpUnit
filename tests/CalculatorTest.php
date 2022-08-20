@@ -35,17 +35,18 @@ class CalculatorTest extends \PHPUnit\Framework\TestCase {
     //test Calculator.add function
     public function testAdd(){
 //extract calculator class calculator.php uses App/ namespace set in .json autoload (matches app/)
-       $calculator = new App\Calculator;
+     //  $calculator = new App\Calculator;
+     //not needed due to setUp()
+
 //notice you need $ for new var names and to access Calculator(lowercased)
 //class. Not App\Calculator.php (namespace specified in composer.json)
 // or the add() within $calculator class (called with -> syntax)
-        $result = $calculator->add(5,20);
+        $result = $this->calculator->add(5,20);
 
 //this() will allow us to use all the assertions to clarify if our result
-//is what it should be. One is assertEquals() first arg is expected result
+//is what it should be. One is assertequals() first arg is expected result
 // and 2nd arg is actual result our program gets. Returns boolean if match
         $this->assertequals(25, $result);
-
 
         //can also set up matrix where each inner arr holds one test's
         // values (2 args and result) like so
@@ -55,30 +56,31 @@ class CalculatorTest extends \PHPUnit\Framework\TestCase {
         //iterate over inner arr values comparing [2] to calc->add([0],[1])
         //using assertequals
         foreach ($values as $num) {
-            $this->assertequals($num[2], $calculator->add($num[0],$num[1]));
+            $this->assertequals($num[2], $this->calculator->add($num[0],$num[1]));
         }
     }
 
     //test for Calculator.subtract() method
     public function testSubtract(){
-        $calculator = new App\Calculator;
-        $result = $calculator->subtract(20,4);
+      //  $calculator = new App\Calculator;
+
+        $result = $this->calculator->subtract(20,4);
         $this->assertequals(16, $result);
     }
 
 
     //test for multiply
     public function testMultiply(){
-        $calc = new App\Calculator;
-        $res = $calc->multiply(5,3);
+      //  $calc = new App\Calculator;
+        $res = $this->calculator->multiply(5,3);
         $this->assertequals(15,$res);
 
     }
 
     //test for division
     public function testDivision(){
-        $calc = new App\Calculator;
-        $res = $calc->divide(68, 4);
+      //  $calc = new App\Calculator;
+        $res = $this->calculator->divide(68, 4);
         $this->assertequals(17, $res);
     }
 
@@ -90,7 +92,7 @@ class CalculatorTest extends \PHPUnit\Framework\TestCase {
         // to set this.expectException() to the exception expected
         // notice the ( xxxx::class) syntax
         $this->expectException(InvalidArgumentException::class);
-        $calc = new App\Calculator;
-        $calc->add('a', []);
+      //  $calc = new App\Calculator;
+        $this->calculator->add('a', []);
     }
 }
