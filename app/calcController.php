@@ -1,5 +1,5 @@
 <?php
-//require_once "./Calculator.php";  //can use namespace instead
+// require_once "./Calculator.php";  //can use namespace instead
 
 use App\Calculator; /*same as doing use App\Calculator as Calculator.
 Notice we use \ not \\ even though namespace. //only needed for autoload*/
